@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>iFNEK-CC: The Interactive Fundamental Nuclear Engineering Knowledge - Concepts Card</title>
+    <style>
+        /* Page styling */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container styling */
+        #rdcContainer {
+            display: flex;
+            justify-content: center;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        /* Popup styling */
+        #equationPopup {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            z-index: 1000;
+            min-width: 300px;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        #latexContent {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        #latexContent .equation {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        #latexContent h1 {
+            font-size: 1.2em;
+            margin: 0 0 15px 0;
+        }
+
+        #latexContent h2 {
+            font-size: 1.1em;
+            margin: 15px 0 8px 0;
+        }
+
+        #latexContent ul {
+            margin: 8px 0;
+            padding-left: 25px;
+        }
+
+        #latexContent li {
+            margin: 4px 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #e74c3c;
+            transition: color 0.3s ease;
+            padding: 5px;
+        }
+
+        .close-btn:hover {
+            color: #c0392b;
+        }
+
+        .warning {
+            color: #e74c3c;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+    <!-- MathJax for rendering LaTeX -->
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <h1>iFNEK-CC: The Interactive Fundamental Nuclear Engineering Knowledge - Concepts Card</h1>
+    <h3 class="warning">YOU WILL NOT HAVE THIS VERSION OF THE FNEK ON ANY EXAM</h3>
+
+    <!-- Container for the SVG -->
+    <div id="rdcContainer"></div>
+    <p>
+        The iFNEK was created thanks to MAJ Filip's inspiration with the PH2X1 iPRC (thanks Kevin).<br>
+        To suggest additional improvements email: <a href="mailto:dave.pert@westpoint.edu">dave.pert@westpoint.edu</a>
+    </p>
+    <!-- Popup for displaying LaTeX equations -->
+    <div id="equationPopup">
+        <span class="close-btn" onclick="closePopup()">Close X</span>
+        <div id="latexContent"></div>
+    </div>
+
+    <script>
+        // Load and display LaTeX content from file
+        function loadContent(filename, event, column) {
+            fetch(filename)
+                .then(response => response.text())
+                .then(content => showPopup(content, event, column))
+                .catch(err => console.error('Error loading content:', err));
+        }
+
+        // Show the popup at an appropriate position
+        function showPopup(content, event, column) {
+            var popup = document.getElementById('equationPopup');
+            document.getElementById('latexContent').innerHTML = content;
+            popup.style.display = 'block';
+
+            const viewportWidth = window.innerWidth;
+            const clickX = event.pageX;
+
+            popup.style.top = (event.pageY + 30) + 'px';
+
+            if (column === "left" || column === "middle") {
+                const rightSpace = viewportWidth - clickX;
+                popup.style.left = (rightSpace >= 650)
+                    ? (clickX + 20) + 'px'
+                    : Math.max(20, clickX - 620) + 'px';
+            } else {
+                // Right column: position toward center-left
+                popup.style.left = Math.max(20, viewportWidth / 2.5 - 300) + 'px';
+            }
+
+            MathJax.typesetPromise();
+        }
+
+        // Close the popup
+        function closePopup() {
+            document.getElementById('equationPopup').style.display = 'none';
+        }
+
+        // Set up a clickable SVG area with hover highlight and content load on click
+        function initializeClickableArea(svgElement, areaId, contentUrl, column) {
+            var area = svgElement.getElementById(areaId);
+            console.log('Initializing clickable area:', areaId, area);
+            if (area) {
+                area.style.fill = 'transparent';
+                area.style.stroke = 'none';
+                area.style.cursor = 'pointer';
+                area.addEventListener('click',     function(event) { loadContent(contentUrl, event, column); });
+                area.addEventListener('mouseover', function()      { area.style.fill = 'rgba(255, 215, 0, 0.25)'; });
+                area.addEventListener('mouseout',  function()      { area.style.fill = 'transparent'; area.style.stroke = 'none'; });
+            } else {
+                console.warn('Clickable area ' + areaId + ' not found in SVG.');
+            }
+        }
+
+        // Fetch and embed the SVG, then wire up all clickable areas
+        fetch('FNEK_Concepts.svg')
+            .then(response => response.text())
+            .then(svgText => {
+                document.getElementById('rdcContainer').innerHTML = svgText;
+                const svgElement = document.getElementById('rdcContainer').querySelector('svg');
+                if (!svgElement) { console.error('SVG element not found in container'); return; }
+
+                initializeClickableArea(svgElement,'prc-300-1','concepts/concept_NE300_1.html','left');
+		initializeClickableArea(svgElement,'prc-300-2','concepts/concept_NE300_2.html','left');
+		initializeClickableArea(svgElement,'prc-300-3','concepts/concept_NE300_3.html','left');
+		initializeClickableArea(svgElement,'prc-300-4','concepts/concept_NE300_4.html','left');
+		initializeClickableArea(svgElement,'prc-300-5','concepts/concept_NE300_5.html','left');
+		initializeClickableArea(svgElement,'prc-300-6','concepts/concept_NE300_6.html','left');
+		initializeClickableArea(svgElement,'prc-300-7','concepts/concept_NE300_7.html','left');
+		initializeClickableArea(svgElement,'prc-350-1','concepts/concept_NE350_1.html','left');
+		initializeClickableArea(svgElement,'prc-350-2','concepts/concept_NE350_2.html','left');
+		initializeClickableArea(svgElement,'prc-350-3','concepts/concept_NE350_3.html','left');
+		initializeClickableArea(svgElement,'prc-350-4','concepts/concept_NE350_4.html','left');
+		initializeClickableArea(svgElement,'prc-355-1','concepts/concept_NE355_1.html','left');
+		initializeClickableArea(svgElement,'prc-355-2','concepts/concept_NE355_2.html','left');
+		initializeClickableArea(svgElement,'prc-355-3','concepts/concept_NE355_3.html','left');
+		initializeClickableArea(svgElement,'prc-355-4','concepts/concept_NE355_4.html','left');
+		initializeClickableArea(svgElement,'prc-355-5','concepts/concept_NE355_5.html','left');
+		initializeClickableArea(svgElement,'prc-361-1','concepts/concept_NE361_1.html','left');
+		initializeClickableArea(svgElement,'prc-361-2','concepts/concept_NE361_2.html','left');
+		initializeClickableArea(svgElement,'prc-361-3','concepts/concept_NE361_3.html','left');
+		initializeClickableArea(svgElement,'prc-361-4','concepts/concept_NE361_4.html','left');
+		initializeClickableArea(svgElement,'prc-361-5','concepts/concept_NE361_5.html','left');
+		initializeClickableArea(svgElement,'prc-450-1','concepts/concept_NE450_1.html','left');
+		initializeClickableArea(svgElement,'prc-450-2','concepts/concept_NE450_2.html','left');
+		initializeClickableArea(svgElement,'prc-450-3','concepts/concept_NE450_3.html','left');
+		initializeClickableArea(svgElement,'prc-450-4','concepts/concept_NE450_4.html','left');
+		initializeClickableArea(svgElement,'prc-450-5','concepts/concept_NE450_5.html','left');
+		initializeClickableArea(svgElement,'prc-452-1','concepts/concept_NE452_1.html','left');
+		initializeClickableArea(svgElement,'prc-452-2','concepts/concept_NE452_2.html','left');
+		initializeClickableArea(svgElement,'prc-452-3','concepts/concept_NE452_3.html','left');
+		initializeClickableArea(svgElement,'prc-452-4','concepts/concept_NE452_4.html','left');
+		initializeClickableArea(svgElement,'prc-452-5','concepts/concept_NE452_5.html','left');
+		initializeClickableArea(svgElement,'prc-474-1','concepts/concept_NE474_1.html','left');
+		initializeClickableArea(svgElement,'prc-474-2','concepts/concept_NE474_2.html','left');
+		initializeClickableArea(svgElement,'prc-474-3','concepts/concept_NE474_3.html','left');
+		initializeClickableArea(svgElement,'prc-474-4','concepts/concept_NE474_4.html','left');
+		initializeClickableArea(svgElement,'prc-474-5','concepts/concept_NE474_5.html','left');
+            })
+            .catch(err => console.error('Error loading SVG:', err));
+
+    </script>
+    <h3 class="warning">YOU WILL NOT HAVE THIS VERSION OF THE FNEK ON ANY EXAM</h3>
+</body>
+
+</html>
