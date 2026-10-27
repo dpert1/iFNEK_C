@@ -1,0 +1,182 @@
+[
+  {
+    "id": "prc-300-1",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 300 — Fundamentals of Nuclear Engineering</p>\n<h1>Concept 1: Three Major Radioactive Decay Processes</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Alpha (α) decay:</strong> The nucleus emits a helium-4 nucleus (2 protons, 2 neutrons), reducing atomic number by 2 and mass number by 4. Occurs in heavy nuclei seeking stability.</li>\n<li><strong>Beta (β) decay:</strong> Inside the nucleus, a neutron converts to a proton emitting an electron (β⁻) and antineutrino, or a proton converts to a neutron emitting a positron (β⁺) and neutrino. Atomic number (Z) changes by ±1 but atomic mass number (A) remains the same. Occurs in nuclides below (β⁻) or above (β⁺) the line of stability.</li>\n<li><strong>Gamma (γ) decay:</strong> An excited nucleus releases excess energy as a high-energy photon with no change in atomic or mass number. Often follows alpha or beta decay. Isomeric transition, not transmutation.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-300-2",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 300 — Fundamentals of Nuclear Engineering</p>\n<h1>Concept 2: Neutron Interactions with Matter</h1>\n<h2>Answer:</h2>\nThere are two categories of neutron interactions: scattering and absorption. There are six subcategories:\n<div class=\"concept\">\n<ul>\n<li><strong>Elastic scattering (n,n):</strong> Neutron collides off nucleus, transferring energy and momentum. Total kinetic energy is conserved. Primary mechanism for neutron moderation.</li>\n<li><strong>Inelastic scattering (n,n'):</strong> Neutron collides off nucleus, transferring energy and momentum. Transfers energy to the nucleus, leaving it in an excited state. Total kinetic energy is not conserved. Requires sufficient neutron energy (>keV).</li>\n<li><strong>Radiative capture (n,γ):</strong> Nucleus absorbs the neutron and emits a gamma ray as it de-excites, forming a heavier nuclide.</li>\n<li><strong>Fission (n,f):</strong> Heavy (A>230) nucleus absorbs a neutron and splits into fission fragments, releasing energy and additional neutrons. </li>\n<li><strong>Transfer (n,p) / (n,α):</strong> Neutron is absorbed, and the nucleus emits a proton or alpha particle.</li>\n<li><strong>Knockout (n,2n) / (n,np):</strong> Neutron is absorbed, and the nucleus emits a neutron and other small particle. High-energy (>MeV) neutron is required. </li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-300-3",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 300 — Fundamentals of Nuclear Engineering</p>\n<h1>Concept 3: Photon Interactions with Matter</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Photoelectric effect:</strong> Photon is completely absorbed by an atom and ejects a bound electron. Dominant at low photon energies (&lt;0.1 MeV).</li>\n<li><strong>Compton scattering:</strong> Photon scatters off a loosely bound electron, transferring part of its energy. Dominant at intermediate energies (0.1–10 MeV).</li>\n<li><strong>Pair production:</strong> Photon converts into an electron-positron pair near a nucleus. Requires photon energy &gt;1.022 MeV to create the pair of particles; dominant at high energies.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-300-4",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 300 — Fundamentals of Nuclear Engineering</p>\n<h1>Concept 4: Fissile vs. Fissionable</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Fissile:</strong> A nuclide capable of undergoing fission with thermal (slow) neutrons. Examples: U-235, Pu-239, U-233, Pu-241. The binding energy of the absorbed neutron alone is sufficient to exceed the fission energy threshold.</li>\n<li><strong>Fissionable:</strong> A nuclide that can undergo fission, but only when struck by fast neutrons above a threshold energy. Examples: U-238, Th-232, Pu-240. All fissile materials are fissionable, but not all fissionable materials are fissile.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-300-5",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 300 — Fundamentals of Nuclear Engineering</p>\n<h1>Concept 5: Purpose of the Moderator</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>The moderator slows fast fission neutrons (~2 MeV) down to thermal energies (~0.025 eV) through elastic scattering collisions. This is necessary because fissile nuclides like U-235 have a much higher fission cross section (200x) at thermal energies, making a sustained chain reaction easier. Ideal moderators have low mass number (maximizing energy transfer per collision), low absorption cross section, and high scattering cross section. Common moderators include light water (H₂O), heavy water (D₂O), and graphite.</p>\n</div>"
+  },
+  {
+    "id": "prc-300-6",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 300 — Fundamentals of Nuclear Engineering</p>\n<h1>Concept 6: Neutron Life Cycle &amp; Four Factor Formula</h1>\n<h2>Life Cycle:</h2>\n<div class=\"concept\">\n<p>A neutron is born at ~2 MeV from fission. It slows via scattering with the moderator (fast → epithermal → thermal). At thermal energies (~0.025 eV) it diffuses until absorbed, most likely in the fuel where it causes another fission.</p>\n</div>\n<h2>Four Factor Formula (\\(k_\\infty =  \\varepsilon p f \\eta \\)):</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>ε (epsilon):</strong> Fast fission factor — accounts for fissions from fast neutrons before thermalization.</li>\n<li><strong>p:</strong> Resonance escape probability — fraction of neutrons that avoid resonance absorption while slowing down.</li>\n<li><strong>f:</strong> Thermal utilization factor — fraction of thermal neutron absorptions that occur in the fuel.</li>\n<li><strong>η (eta):</strong> Thermal fission factor — neutrons produced per neutron absorbed in fuel.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-300-7",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 300 — Fundamentals of Nuclear Engineering</p>\n<h1>Concept 7: PWR and BWR Major Components</h1>\n<h2>PWR (Pressurized Water Reactor):</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Core:</strong> Contains fuel, control rods, and coolant under high pressure (~2000 psi). Generates ~3500 MW\\(_{th}\\)</li>\n<li><strong>Pressurizer:</strong> Maintains system pressure via heaters and spray nozzles.</li>\n<li><strong>Steam Generator:</strong> Heat exchanger between primary to secondary loops; secondary loop produces steam to drive turbine.</li>\n<li><strong>Reactor coolant pumps:</strong> Large electrically driven pumps (~5 MW) that drive coolant through primary system.</li>\n<li><strong>Turbine and Generator:</strong> Series of blades that converts high-pressure steam to low-pressure steam, exerting torque to convert mechanical energy to electrical energy.</li>\n<li><strong>Condenser:</strong> Heat exchanger that condenses low-pressure steam in secondary loop to liquid water.</li>\n</ul>\n</div>\n<h2>BWR (Boiling Water Reactor):</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Core:</strong> Contains fuel, control rods, and coolant at ~1000 psi. Coolant boils directly in the core. Steam separators/dryers lie atop core.</li>\n<li><strong>Turbine and Generator:</strong> Series of blades that converts high-pressure steam to low-pressure steam, exerting torque to convert mechanical energy to electrical energy.</li>\n<li><strong>Condenser:</strong> Heat exchanger that condenses low-pressure steam to liquid water.</li>\n<li><strong>Reactor coolant pumps:</strong> Large electrically driven pumps (~5 MW) that drive coolant through primary system.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-350-1",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 350 — Radiological Engineering Design</p>\n<h1>Concept 1: Uses of Radioisotopes in Industry</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Medical imaging &amp; treatment:</strong> Tc-99m for diagnostic scans; I-131 for thyroid cancer treatment; Co-60 for radiation therapy.</li>\n<li><strong>Industrial radiography:</strong> Ir-192 and Co-60 used to inspect welds and structural integrity via gamma imaging.</li>\n<li><strong>Gauging and measurement:</strong> Am-241 in smoke detectors; radioactive sources for density, level, and thickness gauges in manufacturing.</li>\n<li><strong>Tracer studies:</strong> Radioactive tracers used to track fluid flow, pipeline leaks, and environmental transport.</li>\n<li><strong>Food irradiation:</strong> Gamma sources used to sterilize food and medical equipment.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-350-2",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 350 — Radiological Engineering Design</p>\n<h1>Concept 2: Gas-Filled Detector Pulse Size vs. Voltage Regions</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Recombination region:</strong> Low voltage; ions recombine before reaching electrodes. Pulse size increases with voltage.</li>\n<li><strong>Ionization chamber region:</strong> All primary ion pairs collected; pulse proportional to energy deposited. Alpha and beta distinguishable.</li>\n<li><strong>Proportional region:</strong> Gas multiplication amplifies signal; pulse still proportional to initial ionization. Can distinguish radiation types.</li>\n<li><strong>Limited proportionality:</strong> Space charge effects distort proportionality; transition zone.</li>\n<li><strong>Geiger-Mueller (GM) region:</strong> Full avalanche discharge; all pulses same size regardless of radiation type or energy. Cannot distinguish.</li>\n<li><strong>Continuous discharge:</strong> Voltage too high; continuous ionization, detector damaged.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-350-3",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 350 — Radiological Engineering Design</p>\n<h1>Concept 3: Nuclear Engineering Design Process</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>The nuclear engineering design process follows iterative steps: (1) <strong>Define the problem</strong> — establish requirements, constraints, and safety criteria; (2) <strong>Conceptual design</strong> — identify candidate solutions; (3) <strong>Analysis and modeling</strong> — apply radiation transport, thermal-hydraulic, and structural analyses; (4) <strong>Optimize and select</strong> — balance performance, safety, cost, and regulatory compliance; (5) <strong>Prototype and test</strong> — validate models against experimental data; (6) <strong>Iterate</strong> — refine based on test results. Safety and ALARA principles are integrated at every step.</p>\n</div>"
+  },
+  {
+    "id": "prc-350-4",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 350 — Radiological Engineering Design</p>\n<h1>Concept 4: Biological Effects of Ionizing Radiation &amp; ALARA</h1>\n<h2>Biological Effects:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Stochastic effects:</strong> Probability increases with dose (no threshold); includes cancer and hereditary effects.</li>\n<li><strong>Deterministic effects:</strong> Severity increases above a threshold dose; includes acute radiation syndrome, cataracts, and skin burns.</li>\n</ul>\n</div>\n<h2>ALARA Measures:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Time:</strong> Minimize time spent near radiation sources.</li>\n<li><strong>Distance:</strong> Maximize distance — dose rate drops with inverse square of distance.</li>\n<li><strong>Shielding:</strong> Interpose appropriate shielding material (lead for gamma, water/polyethylene for neutrons).</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-355-1",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 355 — Nuclear Reactor Engineering</p>\n<h1>Concept 1: Four Factor Formula — Heterogeneous vs. Homogeneous</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>\\(k_\\infty = \\varepsilon p f \\eta \\). In a heterogeneous thermal reactor, fuel and moderator are physically separated (e.g., fuel rods in water). Compared to a homogeneous mixture:</p>\n<ul>\n<li><strong>ε (fast fission factor):</strong> <em>Slightly Larger</em> in heterogeneous — fast neutrons born in fuel see more fissionable material before escaping the fuel rod and slowing down.</li>\n<li><strong>p (resonance escape probability):</strong> <em>Substantially Larger</em> in heterogeneous — neutrons slow down in the moderator away from U-238 resonance absorbers, reducing resonance capture.</li>\n<li><strong>f (thermal utilization factor):</strong> <em>Slightly Smaller</em> in heterogeneous — moderator absorbs some thermal neutrons outside the fuel, reducing utilization.</li>\n<li><strong>η (thermal fission factor):</strong> Equal — depends on fuel composition, not geometry.</li>\n<li><strong>k\\(_{\\infty}\\):</strong> <em>Larger</em> in heterogeneous overall — the gains in ε and p outweigh the loss in f.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-355-2",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 355 — Nuclear Reactor Engineering</p>\n<h1>Concept 2: Delayed Neutrons and Reactor Control</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p><strong>Origin:</strong> A small fraction (~0.65% for U-235) of neutrons are not emitted instantly following fission. Instead, certain fission fragments (delayed neutron precursors) undergo beta decay and then emit neutrons, with half-lives ranging from ~0.2 to ~55 seconds.</p>\n<p><strong>Importance:</strong> Without delayed neutrons, the mean neutron generation time would be ~10⁻⁵ s, making reactor control mechanically impossible. Delayed neutrons extend the effective generation time to ~0.1 s, allowing control rods and mechanical systems to respond in time to regulate reactor power.</p>\n</div>"
+  },
+  {
+    "id": "prc-355-3",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 355 — Nuclear Reactor Engineering</p>\n<h1>Concept 3: Positive Temperature Coefficient — Inherent Instability</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>A positive temperature coefficient of reactivity means that as reactor temperature rises, reactivity also increases. This creates a <strong>positive feedback loop</strong>: higher power → higher temperature → more reactivity → even higher power. In a water-moderated or water-cooled reactor, this can occur if voiding (steam formation) increases reactivity (positive void coefficient). The reactor becomes self-reinforcing and cannot self-regulate without external intervention, making it inherently unstable. The RBMK (Chernobyl-type) reactor is the canonical example of this hazard.</p>\n</div>"
+  },
+  {
+    "id": "prc-355-4",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 355 — Nuclear Reactor Engineering</p>\n<h1>Concept 4: Nucleate Boiling and Enhanced Heat Transfer</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>In nucleate boiling, small discrete bubbles form at nucleation sites on the cladding surface and detach into the coolant. As bubbles depart, they carry latent heat away and draw cooler bulk coolant to the surface — dramatically increasing the heat transfer coefficient compared to single-phase convection. The turbulent mixing generated by bubble motion further disrupts the thermal boundary layer. This allows the cladding to transfer significantly more heat per unit area without a substantial temperature rise, as long as the heat flux remains below the critical heat flux (CHF) where a rapid transition to film boiling occurs.</p>\n</div>"
+  },
+  {
+    "id": "prc-355-5",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 355 — Nuclear Reactor Engineering</p>\n<h1>Concept 5: Diffusion as Applied to Neutrons</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>Neutron diffusion applies Fick's Law: neutrons migrate from regions of high flux (high concentration) to regions of low flux, analogous to heat or chemical diffusion. The net neutron current density is expressed \\(\\vec{J} = -D \\vec{\\nabla} \\phi\\), where \\(D\\) is the diffusion coefficient and \\(\\phi\\) is the scalar flux. Combined with the neutron balance equation, this yields the Neutron Diffusion Equation—a simplified version of the Neutron Transport Equation with no angular dependence. It is most applicable when 1) scattering dominates over absorption, 2) scattering is isotropic, and 3) not near boundaries with vacuum or strong absorbers.</p>\n</div>"
+  },
+  {
+    "id": "prc-361-1",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 361 — Computational Design in Nuclear Engineering</p>\n<h1>Concept 1: Interpreted vs. Compiled Languages</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Compiled:</strong> Source code is translated entirely into machine code before execution by a compiler. The resulting executable runs directly on hardware — fast at runtime, but requires a compile step. Examples: C, C++, Fortran (used in many nuclear codes like MCNP).</li>\n<li><strong>Interpreted:</strong> Source code is read and executed line-by-line by an interpreter at runtime — no separate compile step, easier to debug interactively, but generally slower. Examples: Python, MATLAB, Perl.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-361-2",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 361 — Computational Design in Nuclear Engineering</p>\n<h1>Concept 2: Approximations to the Neutron Transport Equation</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Diffusion theory:</strong> Replaces the angular flux with a scalar flux using Fick's Law. Valid where scattering dominates and gradients are mild. Used in most reactor physics codes.</li>\n<li><strong>S<sub>N</sub> (Discrete Ordinates):</strong> Discretizes the angular variable into a finite set of directions. More accurate near boundaries and strong absorbers than diffusion.</li>\n<li><strong>P<sub>N</sub> (Spherical Harmonics):</strong> Expands the angular flux in Legendre polynomials. P₁ approximation reduces to diffusion theory; higher orders improve accuracy.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-361-3",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 361 — Computational Design in Nuclear Engineering</p>\n<h1>Concept 3: Depletion Curve Dip at Constant Power</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>At the start of depletion, Xe-135 and Sm-149 (fission product poisons) are not yet present. Running at constant power causes these poisons to build up rapidly in the first few days — Xe-135 reaches equilibrium in ~40–50 hours, Sm-149 in several days. To maintain constant power as these absorbers accumulate, reactivity (and thus k) must decrease sharply. This appears as a <strong>dip in the k-effective curve</strong> in the first days. After equilibrium is reached, the curve flattens and then decreases linearly as fuel burns up.</p>\n</div>"
+  },
+  {
+    "id": "prc-361-4",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 361 — Computational Design in Nuclear Engineering</p>\n<h1>Concept 4: Benefits of CAD and CAM</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Precision and accuracy:</strong> CAD enables exact geometric modeling, reducing human drafting error and allowing tight tolerances in complex nuclear component designs.</li>\n<li><strong>Iterative design efficiency:</strong> Modifications to geometry propagate automatically throughout the model, enabling rapid design iterations without redrawing.</li>\n<li><strong>Direct manufacturing integration:</strong> CAM translates CAD geometry directly into machine tool paths, reducing interpretation errors between design and fabrication and enabling automation of complex machining operations.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-361-5",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 361 — Computational Design in Nuclear Engineering</p>\n<h1>Concept 5: MCNP Random Walk Process</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>MCNP simulates individual particle histories using the Monte Carlo method. Each particle is born at a source point; random numbers are used at each step to sample: (1) the distance to the next collision from the mean free path distribution, (2) the type of interaction at the collision site (using cross section data), and (3) the post-collision energy and direction. This \"random walk\" continues until the particle is absorbed, exits the geometry, or falls below an energy cutoff. Tallying outcomes across millions of particle histories yields statistically converged estimates of flux, dose, or k-effective.</p>\n</div>"
+  },
+  {
+    "id": "prc-450-1",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 450 — Nuclear Weapons Effects</p>\n<h1>Concept 1: Tamper vs. Reflector — Yield Advantage</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>A <strong>tamper</strong> (e.g., natural uranium or tungsten surrounding the pit) is more advantageous for yield. A reflector scatters neutrons back to the core. A tamper provides inertial resistance that delays hydrodynamic disassembly of the core. By keeping the supercritical assembly together longer, the tamper allows more fission generations to occur before the device kinetically disassembles, substantially increasing total energy yield beyond the energy gains due to scattered neutrons from a reflector.</p>\n</div>"
+  },
+  {
+    "id": "prc-450-2",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 450 — Nuclear Weapons Effects</p>\n<h1>Concept 2: Two Phenomena That Shutdown the Chain Reaction</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Kinetic disassembly:</strong> The enormous energy release from the chain reaction heats and pressurizes the fissile material, causing it to expand and fly apart. As the material disperses, the density drops below critical, and the chain reaction terminates. This is the primary shutdown mechanism.</li>\n<li><strong>Burnup:</strong> As the fuel is consumed through the fission process, the criticality decreases, eventually dropping below one, so the chain reaction dies out. </li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-450-3",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 450 — Nuclear Weapons Effects</p>\n<h1>Concept 3: Importance of Fusion Boosting</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>Fusion boosting introduces a small quantity of D-T gas into the fissile pit. Near peak compression, the fission chain reaction heats the gas sufficiently to initiate D-T fusion. The 14.1-MeV fusion neutrons add to the neutron population at the critical moment, significantly increasing yield without increasing the mass of fissile material — allowing higher yields in a smaller, lighter device.</p>\n</div>"
+  },
+  {
+    "id": "prc-450-4",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 450 — Nuclear Weapons Effects</p>\n<h1>Concept 4: Advantage of a U-238 Tamper on the Fusion Secondary</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>The 14.1-MeV neutrons produced by D-T fusion in the secondary are above the fission threshold of U-238 (~1 MeV). A U-238 (natural or depleted uranium) tamper surrounding the secondary undergoes fast fission from these high-energy neutrons, releasing additional energy and <strong>significantly increasing total weapon yield</strong> beyond what the primary fission and secondary fusion stages alone produce. This energy contribution can account for a substantial fraction of a thermonuclear weapon's total yield.</p>\n</div>"
+  },
+  {
+    "id": "prc-450-5",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 450 — Nuclear Weapons Effects</p>\n<h1>Concept 5: Fractionation</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>Fractionation is the physical separation of fission products from each other and from unfissioned nuclear material during and after a nuclear detonation. Because different fission products have different volatilities and physical/chemical properties, they condense and attach to fallout particles at different rates as the fireball cools. The result is that the ratio of radionuclides in fallout particles is <em>not</em> the same as the original fission product yield distribution — some isotopes are enriched on particles while others are depleted, complicating dose assessment and forensic analysis of nuclear fallout.</p>\n</div>"
+  },
+  {
+    "id": "prc-452-1",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 452 — Instrumentation and Shielding</p>\n<h1>Concept 1: Three Major Gamma Ray Interactions</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Photoelectric effect:</strong> Photon is completely absorbed by a bound electron, which is ejected. Dominant at low energies (&lt;0.1 MeV); cross section scales as \\(\\frac{Z^{4-5}}{E_{\\gamma}^{3.5}}\\).</li>\n<li><strong>Compton scattering:</strong> Partial energy transfer to a free or loosely bound electron; scattered photon continues at reduced energy and deflected angle. Dominant at intermediate energies (0.1–10 MeV); scales linearly with Z.</li>\n<li><strong>Pair production:</strong> Photon converts to an electron-positron pair in the Coulomb field of a nucleus. Requires E<sub>γ</sub> &gt; 1.022 MeV; dominant at high energies (&gt;5–10 MeV); scales as Z².</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-452-2",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 452 — Instrumentation and Shielding</p>\n<h1>Concept 2: Gas-Filled Radiation Detector Operation</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>Ionizing radiation passing through the fill gas creates ion pairs (electrons and positive ions). An applied electric field between two electrodes sweeps electrons toward the anode and ions toward the cathode, producing a measurable current or voltage pulse. The magnitude of the collected charge depends on the applied voltage and operating region (ionization chamber, proportional counter, or GM tube). The pulse is processed by external electronics to count events or measure energy deposition.</p>\n</div>"
+  },
+  {
+    "id": "prc-452-3",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 452 — Instrumentation and Shielding</p>\n<h1>Concept 3: Scintillation Detector Operation</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>Radiation deposits energy in a scintillator material (e.g., NaI(Tl), BGO, plastic), exciting electrons to higher energy states. As electrons return to ground state, they emit visible or UV photons. This light is directed onto a photomultiplier tube (PMT) or similar device, where the photoelectric effect at the photocathode produces electrons that are amplified through a series of dynodes, producing a measurable electrical pulse proportional to the original energy deposition.</p>\n</div>"
+  },
+  {
+    "id": "prc-452-4",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 452 — Instrumentation and Shielding</p>\n<h1>Concept 4: Semiconductor Detector Operation</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>Radiation ionizes the semiconductor material (typically germanium or silicon), creating electron-hole pairs. The energy required per pair (~3 eV in Ge) is much lower than in gas detectors (~30 eV) or scintillators, resulting in far more charge carriers per unit energy and therefore <strong>superior energy resolution</strong>. A reverse-biased p-n junction sweeps carriers apart before recombination, producing a current pulse. HPGe (high-purity germanium) detectors require cryogenic cooling to reduce thermally generated leakage current.</p>\n</div>"
+  },
+  {
+    "id": "prc-452-5",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 452 — Instrumentation and Shielding</p>\n<h1>Concept 5: Detector Response Function vs. Detector Size</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<p>For a small detector, incident photons are likely to undergo only one interaction (e.g., a single Compton scatter) before escaping — the spectrum shows a Compton continuum with little or no full-energy peak. As detector size increases, the probability of secondary photons (scattered gammas, annihilation photons) also being absorbed within the detector increases. A large detector approaches <strong>full-energy peak dominance</strong>, where most photon energy is fully deposited, yielding a sharp photopeak for monoenergetic incident gamma rays. The response function thus transitions from continuum-dominated to photopeak-dominated as detector volume increases.</p>\n</div>"
+  },
+  {
+    "id": "prc-474-1",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 474 — Radiological Safety</p>\n<h1>Concept 1: Secular vs. Transient Equilibrium</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Secular equilibrium:</strong> Occurs when the parent half-life is <em>much greater</em> than the daughter's (t<sub>½,parent</sub> ≫ t<sub>½,daughter</sub>). The parent activity is essentially constant on short timescales, and the daughter activity grows until it equals the parent activity. Daughter activity ≈ parent activity at equilibrium.</li>\n<li><strong>Transient equilibrium:</strong> Occurs when the parent half-life is <em>moderately longer</em> than the daughter's (t<sub>½,parent</sub> &gt; t<sub>½,daughter</sub>, but not by orders of magnitude). The daughter activity grows to a level slightly higher than the parent and then decays at the parent's rate. Daughter activity &gt; parent activity at equilibrium.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-474-2",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 474 — Radiological Safety</p>\n<h1>Concept 2: Three Qualities of Deterministic (Non-Stochastic) Effects</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Threshold dose:</strong> Effects only occur above a minimum dose; below the threshold, no effect is observed.</li>\n<li><strong>Severity increases with dose:</strong> Above the threshold, the severity of the effect (not just probability) increases as dose increases.</li>\n<li><strong>Causality:</strong> The effect has a recognized clinical presentation that can be linked to the radiation exposure (e.g., erythema, acute radiation syndrome).</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-474-3",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 474 — Radiological Safety</p>\n<h1>Concept 3: Three Qualities of Stochastic Effects</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>No threshold:</strong> Any dose, however small, is assumed to carry some probability of effect (linear no-threshold model).</li>\n<li><strong>Probability increases with dose:</strong> Higher dose increases the likelihood of the effect occurring, not its severity.</li>\n<li><strong>Not individually attributable (Random):</strong> The effect (e.g., cancer) is clinically indistinguishable from the same effect caused by non-radiological factors; only detectable statistically in large populations.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-474-4",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 474 — Radiological Safety</p>\n<h1>Concept 4: Three Subclasses of Acute Radiation Syndrome (ARS)</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Hematopoietic (bone marrow) syndrome:</strong> Onset at ~1–6 Gy whole-body dose. Destruction of blood-forming cells causes decreased white blood cells, platelets, and red blood cells, leading to infection, hemorrhage, and anemia. Potentially survivable with medical support.</li>\n<li><strong>Gastrointestinal (GI) syndrome:</strong> Onset at ~6–10 Gy. Destruction of intestinal epithelium causes nausea, vomiting, diarrhea, and loss of the gut barrier. Fluid and electrolyte loss; nearly always fatal without aggressive treatment.</li>\n<li><strong>Central Nervous System (CNS) syndrome:</strong> Onset at &gt;20–50 Gy. Rapid incapacitation, seizures, cardiovascular collapse. Uniformly lethal within hours to days; no effective treatment.</li>\n</ul>\n</div>"
+  },
+  {
+    "id": "prc-474-5",
+    "column": "left",
+    "body": "<p class=\"course-tag\">NE 474 — Radiological Safety</p>\n<h1>Concept 5: Absorbed, Equivalent, and Effective Dose</h1>\n<h2>Answer:</h2>\n<div class=\"concept\">\n<ul>\n<li><strong>Absorbed dose (D):</strong> Energy deposited per unit mass of tissue [Gy = J/kg]. A purely physical quantity — does not account for radiation type or tissue sensitivity.</li>\n<li><strong>Equivalent dose (H):</strong> Absorbed dose weighted by the radiation weighting factor (w<sub>R</sub>), which accounts for the relative biological effectiveness of the radiation type. \\(H = w_R \\cdot D\\) [Sv]. Gamma/X-ray: w<sub>R</sub> = 1; alpha: w<sub>R</sub> = 20.</li>\n<li><strong>Effective dose (E):</strong> Equivalent dose further weighted by tissue weighting factors (W<sub>T</sub>), accounting for the varying radiosensitivity of different organs. \\(E = \\sum w_T \\cdot H_T\\) [Sv]. Used for stochastic risk assessment across the whole body.</li>\n</ul>\n</div>"
+  }
+]

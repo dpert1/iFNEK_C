@@ -85,14 +85,44 @@
             color: #c0392b;
         }
 
+        /* Popup content styles (moved here from the individual popup files, scoped to the popup) */
+        #equationPopup {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            color: #111;
+        }
+        #latexContent .course-tag { font-size: 0.8rem; color: #2c5f8a; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; }
+        #latexContent .concept { background: #f0f4f8; padding: 16px; border-radius: 6px; border-left: 4px solid #2c5f8a; margin-bottom: 12px; }
+
+        /* Clickable hotspots drawn in the SVG */
+        #rdcContainer [data-hotspot] {
+            fill: transparent;
+            stroke: none;
+            cursor: pointer;
+        }
+
+        #rdcContainer [data-hotspot]:hover {
+            fill: rgba(255, 215, 0, 0.25);
+        }
+
         .warning {
             color: #e74c3c;
             font-weight: bold;
             text-align: center;
         }
     </style>
-    <!-- MathJax for rendering LaTeX -->
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- MathJax for rendering LaTeX. If a popup is opened before MathJax finishes loading, it is typeset on load. -->
+    <script>
+        window.MathJax = {
+            startup: {
+                typeset: false,
+                ready() {
+                    MathJax.startup.defaultReady();
+                    MathJax.startup.promise.then(() => { if (window.typesetPopup) typesetPopup(); });
+                }
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -112,18 +142,22 @@
     </div>
 
     <script>
-        // Load and display LaTeX content from file
-        function loadContent(filename, event, column) {
-            fetch(filename)
-                .then(response => response.text())
-                .then(content => showPopup(content, event, column))
-                .catch(err => console.error('Error loading content:', err));
+        // Popup content, keyed by SVG hotspot id (loaded from content.json)
+        var content = {};
+
+        // Typeset the popup only, once MathJax has loaded
+        function typesetPopup() {
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise([document.getElementById('latexContent')]);
+            }
         }
 
         // Show the popup at an appropriate position
-        function showPopup(content, event, column) {
+        function showPopup(entry, event) {
             var popup = document.getElementById('equationPopup');
-            document.getElementById('latexContent').innerHTML = content;
+            var container = document.getElementById('latexContent');
+            if (window.MathJax && MathJax.typesetClear) MathJax.typesetClear([container]);
+            container.innerHTML = entry.body;
             popup.style.display = 'block';
 
             const viewportWidth = window.innerWidth;
@@ -131,17 +165,23 @@
 
             popup.style.top = (event.pageY + 30) + 'px';
 
-            if (column === "left" || column === "middle") {
+            if (entry.column === "right") {
+                // Right column: position toward center-left
+                popup.style.left = Math.max(20, viewportWidth / 2.5 - 300) + 'px';
+            } else {
+                // Left/middle columns: right of the click if there is room, otherwise left of it
                 const rightSpace = viewportWidth - clickX;
                 popup.style.left = (rightSpace >= 650)
                     ? (clickX + 20) + 'px'
                     : Math.max(20, clickX - 620) + 'px';
-            } else {
-                // Right column: position toward center-left
-                popup.style.left = Math.max(20, viewportWidth / 2.5 - 300) + 'px';
             }
 
-            MathJax.typesetPromise();
+            // Keep the popup fully on screen
+            const rect = popup.getBoundingClientRect();
+            if (rect.right > viewportWidth) popup.style.left = Math.max(20, viewportWidth - rect.width - 20) + 'px';
+            if (rect.left < 0) popup.style.left = '20px';
+
+            typesetPopup();
         }
 
         // Close the popup
@@ -149,69 +189,38 @@
             document.getElementById('equationPopup').style.display = 'none';
         }
 
-        // Set up a clickable SVG area with hover highlight and content load on click
-        function initializeClickableArea(svgElement, areaId, contentUrl, column) {
-            var area = svgElement.getElementById(areaId);
-            console.log('Initializing clickable area:', areaId, area);
-            if (area) {
-                area.style.fill = 'transparent';
-                area.style.stroke = 'none';
-                area.style.cursor = 'pointer';
-                area.addEventListener('click',     function(event) { loadContent(contentUrl, event, column); });
-                area.addEventListener('mouseover', function()      { area.style.fill = 'rgba(255, 215, 0, 0.25)'; });
-                area.addEventListener('mouseout',  function()      { area.style.fill = 'transparent'; area.style.stroke = 'none'; });
-            } else {
-                console.warn('Clickable area ' + areaId + ' not found in SVG.');
-            }
-        }
+        // Close on Esc, or on a click outside the popup that is not on another hotspot
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') closePopup();
+        });
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('#equationPopup, [data-hotspot]')) closePopup();
+        });
 
-        // Fetch and embed the SVG, then wire up all clickable areas
-        fetch('FNEK_Concepts.svg')
-            .then(response => response.text())
-            .then(svgText => {
-                document.getElementById('rdcContainer').innerHTML = svgText;
-                const svgElement = document.getElementById('rdcContainer').querySelector('svg');
+        // Fetch the SVG and popup content, embed the SVG, then wire up one delegated click handler
+        Promise.all([
+            fetch('FNEK_Concepts.svg').then(response => response.text()),
+            fetch('content.json').then(response => response.json())
+        ])
+            .then(([svgText, data]) => {
+                const container = document.getElementById('rdcContainer');
+                container.innerHTML = svgText;
+                const svgElement = container.querySelector('svg');
                 if (!svgElement) { console.error('SVG element not found in container'); return; }
 
-                initializeClickableArea(svgElement,'prc-300-1','concepts/concept_NE300_1.html','left');
-		initializeClickableArea(svgElement,'prc-300-2','concepts/concept_NE300_2.html','left');
-		initializeClickableArea(svgElement,'prc-300-3','concepts/concept_NE300_3.html','left');
-		initializeClickableArea(svgElement,'prc-300-4','concepts/concept_NE300_4.html','left');
-		initializeClickableArea(svgElement,'prc-300-5','concepts/concept_NE300_5.html','left');
-		initializeClickableArea(svgElement,'prc-300-6','concepts/concept_NE300_6.html','left');
-		initializeClickableArea(svgElement,'prc-300-7','concepts/concept_NE300_7.html','left');
-		initializeClickableArea(svgElement,'prc-350-1','concepts/concept_NE350_1.html','left');
-		initializeClickableArea(svgElement,'prc-350-2','concepts/concept_NE350_2.html','left');
-		initializeClickableArea(svgElement,'prc-350-3','concepts/concept_NE350_3.html','left');
-		initializeClickableArea(svgElement,'prc-350-4','concepts/concept_NE350_4.html','left');
-		initializeClickableArea(svgElement,'prc-355-1','concepts/concept_NE355_1.html','left');
-		initializeClickableArea(svgElement,'prc-355-2','concepts/concept_NE355_2.html','left');
-		initializeClickableArea(svgElement,'prc-355-3','concepts/concept_NE355_3.html','left');
-		initializeClickableArea(svgElement,'prc-355-4','concepts/concept_NE355_4.html','left');
-		initializeClickableArea(svgElement,'prc-355-5','concepts/concept_NE355_5.html','left');
-		initializeClickableArea(svgElement,'prc-361-1','concepts/concept_NE361_1.html','left');
-		initializeClickableArea(svgElement,'prc-361-2','concepts/concept_NE361_2.html','left');
-		initializeClickableArea(svgElement,'prc-361-3','concepts/concept_NE361_3.html','left');
-		initializeClickableArea(svgElement,'prc-361-4','concepts/concept_NE361_4.html','left');
-		initializeClickableArea(svgElement,'prc-361-5','concepts/concept_NE361_5.html','left');
-		initializeClickableArea(svgElement,'prc-450-1','concepts/concept_NE450_1.html','left');
-		initializeClickableArea(svgElement,'prc-450-2','concepts/concept_NE450_2.html','left');
-		initializeClickableArea(svgElement,'prc-450-3','concepts/concept_NE450_3.html','left');
-		initializeClickableArea(svgElement,'prc-450-4','concepts/concept_NE450_4.html','left');
-		initializeClickableArea(svgElement,'prc-450-5','concepts/concept_NE450_5.html','left');
-		initializeClickableArea(svgElement,'prc-452-1','concepts/concept_NE452_1.html','left');
-		initializeClickableArea(svgElement,'prc-452-2','concepts/concept_NE452_2.html','left');
-		initializeClickableArea(svgElement,'prc-452-3','concepts/concept_NE452_3.html','left');
-		initializeClickableArea(svgElement,'prc-452-4','concepts/concept_NE452_4.html','left');
-		initializeClickableArea(svgElement,'prc-452-5','concepts/concept_NE452_5.html','left');
-		initializeClickableArea(svgElement,'prc-474-1','concepts/concept_NE474_1.html','left');
-		initializeClickableArea(svgElement,'prc-474-2','concepts/concept_NE474_2.html','left');
-		initializeClickableArea(svgElement,'prc-474-3','concepts/concept_NE474_3.html','left');
-		initializeClickableArea(svgElement,'prc-474-4','concepts/concept_NE474_4.html','left');
-		initializeClickableArea(svgElement,'prc-474-5','concepts/concept_NE474_5.html','left');
-            })
-            .catch(err => console.error('Error loading SVG:', err));
+                data.forEach(entry => {
+                    content[entry.id] = entry;
+                    const area = svgElement.getElementById(entry.id);
+                    if (area) area.setAttribute('data-hotspot', '');
+                    else console.warn('Clickable area ' + entry.id + ' not found in SVG.');
+                });
 
+                svgElement.addEventListener('click', function(event) {
+                    const area = event.target.closest('[data-hotspot]');
+                    if (area) showPopup(content[area.id], event);
+                });
+            })
+            .catch(err => console.error('Error loading card:', err));
     </script>
     <h3 class="warning">YOU WILL NOT HAVE THIS VERSION OF THE FNEK ON ANY EXAM</h3>
 </body>
